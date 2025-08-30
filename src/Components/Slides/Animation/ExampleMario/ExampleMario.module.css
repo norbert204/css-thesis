@@ -1,0 +1,162 @@
+.container {
+    display: flex;
+    height: 50vh;
+    justify-content: center;
+}
+
+.mario {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    transform-style: preserve-3d;
+    perspective: 550px;
+    transform: rotateX(-25deg);
+    position: relative;
+
+    & * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-origin: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    & .platform-1, & .platform-2 {
+        width: 10vh;
+        height: 10vh;
+        background-image: url('platform.png');
+    }
+
+    & .platform-1 {
+        transform: translateY(40vh) rotateX(90deg);
+    }
+
+    & .platform-2 {
+        transform: translate3d(35vh, 40vh, 0) rotateX(90deg);
+    }
+
+    & .mario-animation {
+        width: 10vh;
+        height: 10vh;
+        animation: 3s mario-jump linear infinite;
+        animation-delay: 1s;
+        transform: translate3d(0, 35vh, 0);
+        background-image: url('mario-idle.png');
+    }
+
+    & .turtle-animation {
+        width: 10vh;
+        height: 15vh;
+        animation: 3s turtle-jump linear infinite;
+        transform: translate3d(40vh, 30vh, 0);
+        background-image: url('turtle-idle.png');
+    }
+}
+
+@keyframes mario-jump {
+    0% {
+        transform: translate3d(0, 35vh, 0);
+        background-image: url('mario-idle.png');
+    }
+
+    1% {
+        background-image: url('mario-jump.png');
+    }
+
+    25% {
+        transform: translate3d(17.5vh, 20vh, 0);
+    }
+
+    44% {
+        background-image: url('mario-jump.png');
+    }
+
+    45% {
+        transform: translate3d(35vh, 35vh, 0);
+        background-image: url('mario-idle.png');
+    }
+
+    49% {
+        transform: translate3d(35vh, 35vh, 0) scaleX(1);
+    }
+
+    50% {
+        transform: translate3d(35vh, 35vh, 0) scaleX(-1);
+        background-image: url('mario-idle.png');
+    }
+
+    51% {
+        background-image: url('mario-jump.png');
+    }
+
+    75% {
+        transform: translate3d(17.5vh, 20vh, 0) scaleX(-1);
+    }
+
+    94% {
+        background-image: url('mario-jump.png');
+    }
+
+    95% {
+        transform: translate3d(0, 35vh, 0) scaleX(-1);
+        background-image: url('mario-idle.png');
+    }
+
+    99% {
+        transform: translate3d(0, 35vh, 0) scaleX(-1);
+    }
+}
+
+@keyframes turtle-jump {
+    0% {
+        transform: translate3d(35vh, 30vh, 0) scaleX(1);
+        background-image: url('turtle-idle.png');
+    }
+
+    1% {
+        background-image: url('turtle-jump.png');
+    }
+
+    25% {
+        transform: translate3d(17.5vh, 0vh, 0);
+    }
+
+    44% {
+        background-image: url('turtle-jump.png');
+    }
+
+    45% {
+        transform: translate3d(0vh, 30vh, 0);
+        background-image: url('turtle-idle.png');
+    }
+
+    49% {
+        transform: translate3d(0vh, 30vh, 0) scaleX(1);
+    }
+
+    50% {
+        transform: translate3d(0vh, 30vh, 0) scaleX(-1);
+        background-image: url('turtle-idle.png');
+    }
+
+    51% {
+        background-image: url('turtle-jump.png');
+    }
+
+    75% {
+        transform: translate3d(17.5vh, 0vh, 0) scaleX(-1);
+    }
+
+    94% {
+        background-image: url('turtle-jump.png');
+    }
+
+    95% {
+        transform: translate3d(35vh, 30vh, 0) scaleX(-1);
+        background-image: url('turtle-idle.png');
+    }
+
+    99% {
+        transform: translate3d(35vh, 30vh, 0) scaleX(-1);
+    }
+}

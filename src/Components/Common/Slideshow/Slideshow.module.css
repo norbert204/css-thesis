@@ -1,0 +1,85 @@
+.container {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+.slide {
+    font-size: 2em;
+}
+
+.slide > * {
+    animation: .5s ease-in-out fade-in;
+    padding: 1em;
+}
+
+.controls {
+    font-size: 2em;
+    background: var(--background-secondary);
+    border-top: 1px solid var(--stroke);
+    display: flex;
+    padding: .2em .5em;
+    gap: 1em;
+    align-items: center;
+    transition: .1s ease-in-out background;
+
+    & .steppers {
+        display: flex;
+        gap: .25em;
+    }
+
+    & .stepper-button {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 50%;
+        border: none;
+        background: var(--accent);
+        transition: .1s ease-in-out background;
+        padding: .2em;
+
+        & svg {
+            fill: var(--foreground);
+            width: 100%;
+            height: 100%;
+        }
+
+        &:first-of-type svg {
+            transform: rotateY(180deg);
+        }
+
+        &:disabled {
+            background: color-mix(in hsl, var(--accent), #000 30%);
+
+            & svg {
+                fill: color-mix(in hsl, var(--foreground), #000 30%);
+            }
+        }
+
+        &:not(:disabled) {
+            &:focus-visible {
+                border: 2px solid var(--foreground);
+            }
+
+            &:is(:hover, :focus-visible) {
+                background: color-mix(in hsl, var(--accent), #000 10%);
+                cursor: pointer;
+            }
+
+            &:active {
+                background: color-mix(in hsl, var(--accent), #000 20%);
+            }
+        }
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        margin-top: -1em;
+    }
+
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
+}

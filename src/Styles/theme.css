@@ -1,0 +1,72 @@
+:root {
+    font-family: sans-serif;
+    font-size: 14px;
+    --background: light-dark(#eee, #111);
+    --foreground: light-dark(#111, #eee);
+    --background-secondary: color-mix(in hsl, var(--background), light-dark(#000, #fff) 20%);
+    --stroke: color-mix(in hsl, var(--background), light-dark(#000, #fff) 40%);
+    --accent: light-dark(#00a, #0be);
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2.25em;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+h4 {
+    font-size: 1.75em;
+}
+
+h5 {
+    font-size: 1.5em;
+}
+
+h6 {
+    font-size: 1.25em;
+}
+
+ul, ol, dl {
+    padding-left: 1.5em;
+}
+
+li {
+    margin: 0.5em 0;
+}
+
+p {
+    margin: 1em 0;
+    text-align: justify;
+}
+
+i {
+    font-style: italic;
+}
+    
+code {
+    padding: 0 .2em;
+    border: 1px solid var(--stroke);
+    border-radius: .3em;
+    background: color-mix(in hsl, var(--background), light-dark(#000, #fff) 20%);
+    font-family: monospace;
+}
+
+blockquote {
+    padding: .5em 1em;
+    font-size: .9em;
+    background: color-mix(in hsl, var(--background), light-dark(#000, #fff) 10%);
+    color: color-mix(in hsl, var(--foreground), light-dark(#fff, #000) 10%);
+    border-left: 5px solid var(--stroke);
+    text-align: justify;
+}

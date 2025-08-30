@@ -1,0 +1,42 @@
+.container {
+    display: grid;
+    place-items: center;
+    --background-image: url('windows-background.jpg');
+    --glass-border-color: #444;
+}
+
+.image {
+    background-image: var(--background-image);
+    background-size: cover;
+    aspect-ratio: 16 / 9;
+    height: 60vh;
+    position: relative;
+}
+
+.glass {
+    --glass-x: 0px;
+    --glass-y: 0px;
+    position: absolute;
+    top: var(--glass-y);
+    left: var(--glass-x);
+    aspect-ratio: 16 / 9;
+    height: 20vh;
+    border-radius: 10vh;
+    overflow: hidden;
+    box-shadow: 0 0 10px var(--glass-border-color);
+
+    &:hover {
+        cursor: grab;
+    }
+
+    & > .glass-image {
+        width: 100%;
+        height: 100%;
+        background-image: var(--background-image);
+        background-size: calc((16/9) * 60vh) 60vh;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: left top;
+        filter: blur(15px) brightness(0.8);
+    }
+}

@@ -1,0 +1,48 @@
+.example-list {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-items: start;
+    gap: .5em 2em;
+    padding: .5em 1em;
+}
+
+.example-box {
+    padding: .1em .5em;
+    border: 1px solid var(--stroke);
+    border-radius: .2em;
+    background: #330055;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.example-margin {
+    transition-property: margin;
+
+    &:is(:hover, :focus-visible) {
+        margin-left: 1em;
+    }
+}
+
+.example-padding {
+    transition-property: padding;
+
+    &:is(:hover, :focus-visible) {
+        padding: .5em 1em;
+    }
+}
+
+.example-background {
+    transition-property: background;
+
+    &:is(:hover, :focus-visible) {
+        background: color-mix(in hsl, #00bb33, #fff 40%);
+    }
+}
+
+.example-opacity {
+    transition-property: opacity;
+
+    &:is(:hover, :focus-visible) {
+        opacity: .2;
+    }
+}

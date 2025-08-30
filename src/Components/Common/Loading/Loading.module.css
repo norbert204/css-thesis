@@ -1,0 +1,33 @@
+.loading {
+    width: 2em;
+    height: .3em;
+
+    & > div {
+        background: var(--accent);
+        animation: loading linear infinite alternate;
+        height: .3em;
+        border-radius: .15em;
+    }
+}
+
+@keyframes loading {
+    0% {
+        width: .3em;
+        transform: translateX(0);
+    }
+
+    20% {
+        width: 1em;   
+        transform: translateX(0);
+    }
+
+    80% {
+        width: 1em;
+        transform: translateX(1em);
+    }
+
+    100% {
+        width: .3em;
+        transform: translateX(1.7em);
+    }
+}

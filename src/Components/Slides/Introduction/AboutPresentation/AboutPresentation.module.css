@@ -1,0 +1,49 @@
+.animated-questionmark {
+    animation: 3s bop linear infinite alternate;
+
+    & .rotating-layer {
+        animation: 2s rotate-bop linear infinite alternate;
+    }
+
+    & svg {
+        fill: var(--foreground);
+        stroke: var(--foreground);
+        stroke-width: .2em;
+        stroke-linecap: round;
+        animation: 2s pop-in ease-in-out;
+    }
+}
+
+@keyframes pop-in {
+    0% {
+        transform: rotateZ(-20deg) scale(0%);
+    }
+
+    60% {
+        transform: rotateZ(20deg) scale(110%);
+    }
+
+    100% {
+        transform: rotateZ(0deg) scale(100%);
+    }
+}
+
+@keyframes rotate-bop {
+    from {
+        transform: rotateZ(-5deg);
+    }
+
+    to {
+        transform: rotateZ(5deg);
+    }
+}
+
+@keyframes bop {
+    from {
+        transform: translateY(-10%);
+    }
+
+    to {
+        transform: translateY(10%);
+    }
+}

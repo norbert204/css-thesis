@@ -1,0 +1,12 @@
+.shy-heading {
+    font-size: .3em;
+    transition: font-size 2s ease-out;
+
+    &:is(:hover, :focus-visible) {
+        font-size: 2.5em;
+    }
+}
+
+.magnifier-cursor {
+    cursor: zoom-in;
+}
