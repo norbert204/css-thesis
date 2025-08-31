@@ -13,6 +13,7 @@ import TransitionProperty from './Components/Slides/Transition/TransitionPropert
 import TransitionPropertyProperty from './Components/Slides/Transition/TransitionPropertyProperty/TransitionPropertyProperty'
 import AnimationSectionTitle from './Components/Slides/Animation/AnimationSectionTitle/AnimationSectionTitle'
 import AnimationProperty from './Components/Slides/Animation/AnimationProperty/AnimationProperty'
+import AnimationNameProperty from './Components/Slides/Animation/AnimationNameProperty/AnimationNameProperty'
 import AnimationDuration from './Components/Slides/Animation/AnimationDuration/AnimationDuration'
 import ExampleMario from './Components/Slides/Animation/ExampleMario/ExampleMario'
 import ExampleBlur from './Components/Slides/Filter/ExampleBlur/ExampleBlur'
@@ -29,6 +30,7 @@ export default function App() {
         TransitionPropertyProperty,
         AnimationSectionTitle,
         AnimationProperty,
+        AnimationNameProperty,
         AnimationDuration,
         ExampleMario,
         ExampleBlur,
@@ -49,8 +51,8 @@ export default function App() {
 
     return (
         <>
-            <main className={ styles['content'] }>
-                <Slideshow slides={ slides } slideIndex={ slideIndex } setSlideIndex={ setSlideIndex } />
+            <main className={styles['content']}>
+                <Slideshow slides={slides} slideIndex={slideIndex} setSlideIndex={setSlideIndex} />
             </main>
             <PortraitModeDialog />
         </>

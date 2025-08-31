@@ -53,13 +53,28 @@ p {
 i {
     font-style: italic;
 }
-    
+
 code {
     padding: 0 .2em;
     border: 1px solid var(--stroke);
     border-radius: .3em;
-    background: color-mix(in hsl, var(--background), light-dark(#000, #fff) 20%);
+    background: var(--background-secondary);
     font-family: monospace;
+}
+
+pre {
+    padding: .1em .2em;
+    border: 1px solid var(--stroke);
+    border-radius: .3em;
+    background: var(--background-secondary);
+
+    /* There was a better way for this, but I forgot what it was */
+    & > code {
+        padding: unset;
+        border: unset;
+        border-radius: unset;
+        background: unset;
+    }
 }
 
 blockquote {
