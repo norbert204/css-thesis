@@ -4,6 +4,7 @@
     --background: light-dark(#eee, #111);
     --foreground: light-dark(#111, #eee);
     --background-secondary: color-mix(in hsl, var(--background), light-dark(#000, #fff) 20%);
+    --background-hover: color-mix(in hsl, var(--background), light-dark(#000, #fff) 40%);
     --stroke: color-mix(in hsl, var(--background), light-dark(#000, #fff) 40%);
     --accent: light-dark(#00a, #0be);
 }
@@ -37,7 +38,9 @@ h6 {
     font-size: 1.25em;
 }
 
-ul, ol, dl {
+ul,
+ol,
+dl {
     padding-left: 1.5em;
 }
 
@@ -69,7 +72,7 @@ pre {
     background: var(--background-secondary);
 
     /* There was a better way for this, but I forgot what it was */
-    & > code {
+    &>code {
         padding: unset;
         border: unset;
         border-radius: unset;
@@ -84,4 +87,51 @@ blockquote {
     color: color-mix(in hsl, var(--foreground), light-dark(#fff, #000) 10%);
     border-left: 5px solid var(--stroke);
     text-align: justify;
+}
+
+input[type="radio"] {
+    width: 1em;
+    height: 1em;
+    appearance: none;
+    position: relative;
+    cursor: pointer;
+
+    &::before,
+    &:checked::after {
+        content: " ";
+        position: absolute;
+        display: inline-block;
+    }
+
+    &::before {
+        left: 0;
+        top: 0;
+        width: 1em;
+        height: 1em;
+        background: var(--background-secondary);
+        border: 1px solid var(--stroke);
+        border-radius: .5em;
+        transition: background .1s ease-in-out;
+    }
+
+    &:is(:hover, :focus-visible)::before {
+        background: var(--background-hover);
+    }
+
+    &:checked::after {
+        left: .2em;
+        top: .2em;
+        width: .6em;
+        height: .6em;
+        background: var(--accent);
+        border-radius: .4em;
+    }
+}
+
+label:has(input) {
+    cursor: pointer;
+
+    & :nth-child(2) {
+        margin-left: .5em;
+    }
 }
