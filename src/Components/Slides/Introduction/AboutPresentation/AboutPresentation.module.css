@@ -23,6 +23,10 @@
         transform: rotateZ(20deg) scale(110%);
     }
 
+    90% {
+        transform: rotateZ(-1deg) scale(100%);
+    }
+
     100% {
         transform: rotateZ(0deg) scale(100%);
     }
