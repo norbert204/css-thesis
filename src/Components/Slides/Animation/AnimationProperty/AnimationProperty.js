@@ -1,4 +1,5 @@
 import Loading from '../../../Common/Loading/Loading'
+import RotatingCube from '../../../Common/RotatingCube/RotatingCube'
 
 export default function AnimationProperty() {
     return (
@@ -25,8 +26,8 @@ export default function AnimationProperty() {
                     <li><code>animation-timing-function</code></li>
                 </ul>
             </div>
-            <div className='centered-demo' style={{ fontSize: '5rem' }}>
-                <Loading timing={'2s'} />
+            <div className="centered-demo">
+                <RotatingCube />
             </div>
         </section>
     )
