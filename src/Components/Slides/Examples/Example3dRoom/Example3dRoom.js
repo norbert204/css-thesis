@@ -5,136 +5,190 @@ const speed = 1
 const yRotationLimit = 80
 
 export default function Example3dRoom() {
+    const [pressedKeys, setPressedKeys] = useState({})
     const [cameraRotation, setCameraRotation] = useState({ x: 0, y: 0 });
-    const [realCameraRotation, setRealCameraRotation] = useState({ x: 0, y: 0, z: 0 });
     const [playerPosition, setPlayerPosition] = useState({ x: 0, y: 0, z: 0 });
-    const [eventsRegistered, setEventsRegistered] = useState(false);
+
 
     useEffect(
         () => {
-            function movePlayer(direction, side) {
+            function toRad(degree) {
+                return (Math.PI * degree) / 180
+            }
+
+            function movePlayer(movementVector) {
                 setPlayerPosition((prevPosition) => {
-                    let newPosition = {
-                        x: prevPosition.x,
-                        y: prevPosition.y,
-                        z: prevPosition.z
-                    };
+                    let newPosition = { ...prevPosition }
 
-                    const rotationOffset = side ? -90 : 0
+                    const yRotationRad = toRad(cameraRotation.y)
 
-                    newPosition.z += direction * speed * Math.cos((Math.PI * (cameraRotation.y - rotationOffset)) / 180)
-                    newPosition.x -= direction * speed * Math.sin((Math.PI * (cameraRotation.y - rotationOffset)) / 180)
+                    const cos = Math.cos(yRotationRad)
+                    const sin = Math.sin(yRotationRad)
+
+                    const forward = {
+                        y: cos,
+                        x: sin,
+                    }
+
+                    const right = {
+                        y: sin,
+                        x: -cos,
+                    }
+
+                    const velocity = {
+                        x: (movementVector.y * forward.x + movementVector.x * right.x),
+                        y: (movementVector.y * forward.y + movementVector.x * right.y),
+                    }
+
+                    const length = Math.sqrt(velocity.x * velocity.x + velocity.y * velocity.y)
+
+                    console.log(length)
+
+                    const normalizedVelocity = {
+                        x: velocity.x / length,
+                        y: velocity.y / length
+                    }
+
+                    newPosition.x = prevPosition.x - normalizedVelocity.x * speed
+                    newPosition.z = prevPosition.z + normalizedVelocity.y * speed
 
                     return newPosition;
                 })
             }
 
-            // TODO: Make this feel better - maybe React will be a limitation
+            const interval = setInterval(() => {
+                let movementVector = { x: 0, y: 0 }
+
+                if ("w" in pressedKeys && pressedKeys["w"] === true) {
+                    movementVector.y = 1
+                }
+                else if ("s" in pressedKeys && pressedKeys["s"] === true) {
+                    movementVector.y = -1
+                }
+
+                if ("d" in pressedKeys && pressedKeys["d"] === true) {
+                    movementVector.x = -1
+                }
+                else if ("a" in pressedKeys && pressedKeys["a"] === true) {
+                    movementVector.x = 1
+                }
+
+                if (movementVector.x === 0 && movementVector.y === 0) {
+                    return
+                }
+
+                movePlayer(movementVector)
+            }, 10)
+
+            return () => {
+                clearInterval(interval)
+            }
+        },
+        [pressedKeys, cameraRotation])
+
+    useEffect(
+        () => {
             function handleKeyDown(event) {
-                if (event.key === 'w') {
-                    movePlayer(1, false)
-                }
-                else if (event.key === 's') {
-                    movePlayer(-1, false)
-                }
-                else if (event.key === 'a') {
-                    movePlayer(-1, true)
-                }
-                else if (event.key === 'd') {
-                    movePlayer(1, true)
-                }
+                setPressedKeys(previous => {
+                    let result = { ...previous }
+
+                    result[event.key] = true
+
+                    return result
+                })
+            }
+
+            function handleKeyUp(event) {
+                setPressedKeys(previous => {
+                    let result = { ...previous }
+
+                    result[event.key] = false
+
+                    return result
+                })
             }
 
             document.addEventListener('keydown', handleKeyDown)
+            document.addEventListener('keyup', handleKeyUp)
 
             return () => {
                 document.removeEventListener('keydown', handleKeyDown)
+                document.removeEventListener('keyup', handleKeyUp)
             }
         },
-        [cameraRotation])
+        [])
 
-    useEffect(() => {
-        // Need the .replace to escape the + in the class name
-        const viewport = document.querySelector(`.${styles.viewport}`.replace("+", "\\+"));
+    useEffect(
+        () => {
+            // Need the .replace to escape the + in the class name
+            const viewport = document.querySelector(`.${styles.viewport}`.replace("+", "\\+"));
 
-        function handlePointerMove(event) {
-            setCameraRotation((prevRotation) => {
-                let x = prevRotation.x + event.movementY;
-                let y = prevRotation.y + event.movementX;
+            function handlePointerMove(event) {
+                setCameraRotation((prevRotation) => {
+                    let x = prevRotation.x + event.movementY;
+                    let y = prevRotation.y + event.movementX;
 
-                if (x > yRotationLimit) {
-                    x = yRotationLimit
-                } else if (x < -yRotationLimit) {
-                    x = -yRotationLimit
-                }
+                    if (x > yRotationLimit) {
+                        x = yRotationLimit
+                    } else if (x < -yRotationLimit) {
+                        x = -yRotationLimit
+                    }
 
-                if (y < 0) {
-                    y += 360
-                } else if (y > 360) {
-                    y -= 360
-                }
+                    if (y < 0) {
+                        y += 360
+                    } else if (y > 360) {
+                        y -= 360
+                    }
 
-                setRealCameraRotation({
-                    x: x * Math.cos(Math.PI * y / 180),
-                    y: y,
-                    z: x * Math.sin(Math.PI * y / 180),
+                    return {
+                        x: x,
+                        y: y,
+                    }
                 })
-
-                return {
-                    x: x,
-                    y: y,
-                }
-            })
-        }
-
-        document.onpointerlockchange = (event) => {
-            if (document.pointerLockElement === viewport && !eventsRegistered) {
-                viewport.addEventListener('mousemove', handlePointerMove);
-
-                setEventsRegistered(true);
-            } else if (document.pointerLockElement !== viewport && eventsRegistered) {
-                viewport.removeEventListener('mousemove', handlePointerMove);
-
-                setEventsRegistered(false);
             }
-        }
 
-        viewport.addEventListener('click', async () => {
-            await viewport.requestPointerLock({
-                unadjustedMovement: true
-            })
-        })
+            viewport.addEventListener('mousemove', handlePointerMove);
 
-        return () => {
+            async function handleClick() {
+                await viewport.requestPointerLock()
+            }
 
-        }
-    },
-    [cameraRotation])
+            viewport.addEventListener('click', handleClick)
+
+            return () => {
+                viewport.removeEventListener('click', handleClick)
+                viewport.removeEventListener('mousemove', handlePointerMove)
+            }
+        },
+        [])
 
     return (
-        <div className={styles.container}>
-            <div className={styles.viewport}>
-                <div className={styles.camera}>
-                    <div className={styles.player} style={{ transform: `rotateX(${realCameraRotation.x}deg) rotateY(${realCameraRotation.y}deg) rotateZ(${realCameraRotation.z}deg) translateZ(${playerPosition.z}vw) translateX(${playerPosition.x}vw)` }}>
-                        <div className={styles.floor}></div>
-                        <div className={styles["closing-walls"]}>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
+        <section>
+            <h2>3D Room</h2>
+            <div className={styles.container}>
+                <div className={styles.viewport}>
+                    <div className={styles.camera}>
+                        <div className={styles.player} style={{ transform: `rotateY(${cameraRotation.y}deg) translateZ(${playerPosition.z}vw) translateX(${playerPosition.x}vw)` }}>
+                            <div className={styles.floor}></div>
+                            <div className={styles["closing-walls"]}>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <div className={styles["central-pillar"]}>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <div className={styles.ceiling}></div>
                         </div>
-                        <div className={styles["central-pillar"]}>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div className={styles.ceiling}></div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
