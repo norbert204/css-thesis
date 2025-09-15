@@ -41,19 +41,19 @@
         background-size: 50vw 50vw;
 
         &:nth-child(1) {
-            transform: translateZ(200vw) translateY(-50vw);
+            transform: rotateY(0deg) translate3d(0, -50vw, 200vw);
         }
 
         &:nth-child(2) {
-            transform: translateZ(-200vw) translateY(-50vw);
+            transform: rotateY(90deg) translate3d(0, -50vw, 200vw);
         }
 
         &:nth-child(3) {
-            transform: translateX(200vw) rotateY(90deg) translateY(-50vw);
+            transform: rotateY(180deg) translate3d(0, -50vw, 200vw);
         }
 
         &:nth-child(4) {
-            transform: translateX(-200vw) rotateY(90deg) translateY(-50vw);
+            transform: rotateY(270deg) translate3d(0, -50vw, 200vw);
         }
     }
 
@@ -82,27 +82,27 @@
         background-size: 50vw 50vw;
 
         &:nth-child(1) {
-            transform: rotateY(0deg) translate3d(0, 0, 10vw);
+            transform: rotateY(0deg) translate3d(0, 0, 17vw);
         }
 
         &:nth-child(2) {
-            transform: rotateY(60deg) translate3d(calc(-1 * sin(60deg) * 10vw), 0, calc(cos(60deg) * 10vw));
+            transform: rotateY(60deg) translate3d(0, 0, 17vw);
         }
 
         &:nth-child(3) {
-            transform: rotateY(120deg) translate3d(calc(-1 * sin(120deg) * 10vw), 0, calc(cos(120deg) * 10vw));
+            transform: rotateY(120deg) translate3d(0, 0, 17vw);
         }
 
         &:nth-child(4) {
-            transform: rotateY(180deg) translate3d(calc(-1 * sin(180deg) * 10vw), 0, calc(cos(180deg) * 10vw));
+            transform: rotateY(180deg) translate3d(0, 0, 17vw);
         }
 
         &:nth-child(5) {
-            transform: rotateY(240deg) translate3d(calc(-1 * sin(240deg) * 10vw), 0, calc(cos(240deg) * 10vw));
+            transform: rotateY(240deg) translate3d(0, 0, 17vw);
         }
 
         &:nth-child(6) {
-            transform: rotateY(300deg) translate3d(calc(-1 * sin(300deg) * 10vw), 0, calc(cos(300deg) * 10vw));
+            transform: rotateY(300deg) translate3d(0, 0, 17vw);
         }
     }
 }
