@@ -22,49 +22,8 @@
         position: absolute;
         transform-style: preserve-3d;
         transform-origin: center center;
+        backface-visibility: hidden;
     }
-}
-
-.floor {
-    width: 400vw;
-    height: 400vw;
-    background: url('doomFloor.png');
-    background-size: 50vw 50vw;
-    transform: translateY(-150vw) rotateX(90deg);
-}
-
-.closing-walls {
-    & > div {
-        width: 400vw;
-        height: 100vw;
-        background: url('doomWall.png');
-        background-size: 50vw 50vw;
-
-        &:nth-child(1) {
-            transform: rotateY(0deg) translate3d(0, -50vw, 200vw);
-        }
-
-        &:nth-child(2) {
-            transform: rotateY(90deg) translate3d(0, -50vw, 200vw);
-        }
-
-        &:nth-child(3) {
-            transform: rotateY(180deg) translate3d(0, -50vw, 200vw);
-        }
-
-        &:nth-child(4) {
-            transform: rotateY(270deg) translate3d(0, -50vw, 200vw);
-        }
-    }
-
-}
-
-.ceiling {
-    width: 400vw;
-    height: 400vw;
-    background: url('doomCeiling.png');
-    background-size: 50vw 50vw;
-    transform: translateY(-250vw) rotateX(90deg);
 }
 
 .player {
@@ -72,37 +31,109 @@
     height: 100%;
 }
 
-.central-pillar {
-    transform: translate3d(200vw, -50vw, 00vw);
-
-    &>div {
-        width: 20vw;
-        height: 100vw;
-        background: url('doomWall.png');
+.room1 {
+    & > .floor {
+        width: 400vw;
+        height: 400vw;
+        background: url('doomFloor.png');
         background-size: 50vw 50vw;
+        transform: translateY(-125vw) rotateX(90deg);
+    }
 
-        &:nth-child(1) {
-            transform: rotateY(0deg) translate3d(0, 0, 17vw);
+    & > .closing-walls {
+        transform: translateY(-75vw);
+
+        &>div {
+            width: 400vw;
+            height: 150vw;
+            background: url('doomWall.png');
+            background-size: 50vw 50vw;
+
+            &:nth-child(1) {
+                transform: rotateY(0deg) translate3d(0, 0, -200vw);
+            }
+
+            &:nth-child(2) {
+                transform: rotateY(90deg) translate3d(0, 0, -200vw);
+            }
+
+            &:nth-child(3) {
+                transform: rotateY(180deg) translate3d(0, 0, -200vw);
+            }
+
+            &:nth-child(4) {
+                transform: rotateY(270deg) translate3d(0, 0, -200vw);
+            }
         }
+    }
 
-        &:nth-child(2) {
-            transform: rotateY(60deg) translate3d(0, 0, 17vw);
+    & > .corner {
+        transform: translateY(-110vw);
+
+        &>div {
+            width: 100vw;
+            height: 100vw;
+            background: url('doomCeiling.png');
+            background-size: 50vw 50vw;
+
+            &:nth-child(1) {
+                transform: translate3d(-25vw, 0, 175vw) rotateY(135deg) rotateX(-45deg);
+            }
+
+            &:nth-child(2) {
+                transform: translate3d(-25vw, 0, -175vw) rotateY(45deg) rotateX(-45deg);
+            }
+
+            &:nth-child(3) {
+                transform: translate3d(325vw, 0, -175vw) rotateY(-45deg) rotateX(-45deg);
+            }
+
+            &:nth-child(4) {
+                transform: translate3d(325vw, 0, 175vw) rotateY(-135deg) rotateX(-45deg);
+            }
         }
+    }
 
-        &:nth-child(3) {
-            transform: rotateY(120deg) translate3d(0, 0, 17vw);
-        }
+    & > .ceiling {
+        width: 400vw;
+        height: 400vw;
+        background: url('doomCeiling.png');
+        background-size: 50vw 50vw;
+        transform: translateY(-275vw) rotateX(-90deg);
+    }
 
-        &:nth-child(4) {
-            transform: rotateY(180deg) translate3d(0, 0, 17vw);
-        }
+    & > .central-pillar {
+        transform: translate3d(200vw, -75vw, 00vw);
 
-        &:nth-child(5) {
-            transform: rotateY(240deg) translate3d(0, 0, 17vw);
-        }
+        &>div {
+            width: 20vw;
+            height: 150vw;
+            background: url('doomWall.png');
+            background-size: 50vw 50vw;
 
-        &:nth-child(6) {
-            transform: rotateY(300deg) translate3d(0, 0, 17vw);
+            &:nth-child(1) {
+                transform: rotateY(0deg) translate3d(0, 0, 17vw);
+            }
+
+            &:nth-child(2) {
+                transform: rotateY(60deg) translate3d(0, 0, 17vw);
+            }
+
+            &:nth-child(3) {
+                transform: rotateY(120deg) translate3d(0, 0, 17vw);
+            }
+
+            &:nth-child(4) {
+                transform: rotateY(180deg) translate3d(0, 0, 17vw);
+            }
+
+            &:nth-child(5) {
+                transform: rotateY(240deg) translate3d(0, 0, 17vw);
+            }
+
+            &:nth-child(6) {
+                transform: rotateY(300deg) translate3d(0, 0, 17vw);
+            }
         }
     }
 }

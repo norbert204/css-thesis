@@ -149,8 +149,8 @@ export default function Example3dRoom() {
 
             viewport.addEventListener('mousemove', handlePointerMove);
 
-            async function handleClick() {
-                await viewport.requestPointerLock()
+            function handleClick() {
+                viewport.requestPointerLock()
             }
 
             viewport.addEventListener('click', handleClick)
@@ -169,22 +169,30 @@ export default function Example3dRoom() {
                 <div className={styles.viewport}>
                     <div className={styles.camera}>
                         <div className={styles.player} style={{ transform: `rotateY(${cameraRotation.y}deg) translateZ(${playerPosition.z}vw) translateX(${playerPosition.x}vw)` }}>
-                            <div className={styles.floor}></div>
-                            <div className={styles["closing-walls"]}>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
+                            <div className={styles.room1}>
+                                <div className={styles.floor}></div>
+                                <div className={styles["closing-walls"]}>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div className={styles["central-pillar"]}>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div className={styles["corner"]}>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div className={styles.ceiling}></div>
                             </div>
-                            <div className={styles["central-pillar"]}>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <div className={styles.ceiling}></div>
                         </div>
                     </div>
                 </div>
