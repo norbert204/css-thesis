@@ -193,6 +193,18 @@ export default function Example3dRoom() {
                                 </div>
                                 <div className={styles.ceiling}></div>
                             </div>
+                            <div className={styles.corridor}>
+                                <div className={styles.floor}></div>
+                                <div className={styles.walls}>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div className={styles.ceiling}>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
