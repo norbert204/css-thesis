@@ -205,6 +205,25 @@ export default function Example3dRoom() {
                                     <div></div>
                                 </div>
                             </div>
+                            <div className={styles.room2}>
+                                <div className={styles.walls}>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div className={styles.ceiling}></div>
+                                <div className={styles.floor}></div>
+                                <div className={styles["poison-pit"]}>
+                                    <div className={styles.poison}></div>
+                                    <div className={styles.walls}>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
