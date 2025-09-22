@@ -11,6 +11,7 @@ import AboutPresentation from './Components/Slides/Introduction/AboutPresentatio
 import TransitionSectionTitle from './Components/Slides/Transition/TransitionSectionTitle/TransitionSectionTitle'
 import TransitionProperty from './Components/Slides/Transition/TransitionProperty/TransitionProperty'
 import TransitionPropertyProperty from './Components/Slides/Transition/TransitionPropertyProperty/TransitionPropertyProperty'
+import ExampleMadEmoji from './Components/Slides/Transition/ExampleMadEmoji/ExampleMadEmoji'
 import AnimationSectionTitle from './Components/Slides/Animation/AnimationSectionTitle/AnimationSectionTitle'
 import AnimationProperty from './Components/Slides/Animation/AnimationProperty/AnimationProperty'
 import AnimationDuration from './Components/Slides/Animation/AnimationDuration/AnimationDuration'
@@ -27,6 +28,7 @@ export default function App() {
         TransitionSectionTitle,
         TransitionProperty,
         TransitionPropertyProperty,
+        ExampleMadEmoji,
         AnimationSectionTitle,
         AnimationProperty,
         AnimationDuration,

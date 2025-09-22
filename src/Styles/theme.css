@@ -3,6 +3,7 @@
     font-size: 14px;
     --background: light-dark(#eee, #111);
     --foreground: light-dark(#111, #eee);
+    --foreground-secondary: color-mix(in hsl, var(--foreground), light-dark(#fff, #000) 20%);
     --background-secondary: color-mix(in hsl, var(--background), light-dark(#000, #fff) 20%);
     --stroke: color-mix(in hsl, var(--background), light-dark(#000, #fff) 40%);
     --accent: light-dark(#00a, #0be);
