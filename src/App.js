@@ -17,6 +17,7 @@ import AnimationDuration from './Components/Slides/Animation/AnimationDuration/A
 import ExampleMario from './Components/Slides/Animation/ExampleMario/ExampleMario'
 import ExampleBlur from './Components/Slides/Filter/ExampleBlur/ExampleBlur'
 import Example3dRoom from './Components/Slides/Examples/Example3dRoom/Example3dRoom'
+import FilterSectionTitle from './Components/Slides/Filter/FilterSectionTitle/FilterSectionTitle'
 
 export default function App() {
     const { page } = useParams()
@@ -31,6 +32,7 @@ export default function App() {
         AnimationProperty,
         AnimationDuration,
         ExampleMario,
+        FilterSectionTitle,
         ExampleBlur,
         Example3dRoom,
     ]
