@@ -38,8 +38,8 @@
     & .mario-animation {
         width: 10vh;
         height: 10vh;
-        animation: 3s mario-jump linear infinite;
-        animation-delay: 1s;
+        animation: 2s mario-jump linear infinite;
+        animation-delay: .5ss;
         transform: translate3d(0, 35vh, 0);
         background-image: url('mario-idle.png');
     }
@@ -47,7 +47,7 @@
     & .turtle-animation {
         width: 10vh;
         height: 15vh;
-        animation: 3s turtle-jump linear infinite;
+        animation: 2s turtle-jump linear infinite;
         transform: translate3d(40vh, 30vh, 0);
         background-image: url('turtle-idle.png');
     }
