@@ -14,7 +14,7 @@
     background-size: 15vw 15vw;
     background-repeat: no-repeat;
     transition: 2s background ease-in,
-        1s transform ease-out,
+        1s transform linear(0% 0, 50% 0.3, 100% 1),
         3s filter ease-in;
 
     &:hover {
