@@ -36,127 +36,82 @@
     }
 
     & .mario-animation {
+        --idle-height: 35vh;
+        --jump-height: 20vh;
+        --image-idle: url('mario-idle.png');
+        --image-jump: url('mario-jump.png');
         width: 10vh;
         height: 10vh;
-        animation: 2s mario-jump linear infinite;
+        animation: 2s jump linear infinite;
         animation-delay: .5ss;
         transform: translate3d(0, 35vh, 0);
         background-image: url('mario-idle.png');
     }
 
     & .turtle-animation {
+        --idle-height: 30vh;
+        --jump-height: 0vh;
+        --image-idle: url('turtle-idle.png');
+        --image-jump: url('turtle-jump.png');
         width: 10vh;
         height: 15vh;
-        animation: 2s turtle-jump linear infinite;
+        animation: 2s jump linear infinite;
+        animation-delay: -1s;
         transform: translate3d(40vh, 30vh, 0);
         background-image: url('turtle-idle.png');
     }
 }
 
-@keyframes mario-jump {
+@keyframes jump {
     0% {
-        transform: translate3d(0, 35vh, 0);
-        background-image: url('mario-idle.png');
+        transform: translate3d(0, var(--idle-height), 0);
+        background-image: var(--image-idle);
     }
 
     1% {
-        background-image: url('mario-jump.png');
+        background-image: var(--image-jump);
     }
 
     25% {
-        transform: translate3d(17.5vh, 20vh, 0);
+        transform: translate3d(17.5vh, var(--jump-height), 0);
     }
 
     44% {
-        background-image: url('mario-jump.png');
+        background-image: var(--image-jump);
     }
 
     45% {
-        transform: translate3d(35vh, 35vh, 0);
-        background-image: url('mario-idle.png');
+        transform: translate3d(35vh, var(--idle-height), 0);
+        background-image: var(--image-idle);
     }
 
     49% {
-        transform: translate3d(35vh, 35vh, 0) scaleX(1);
+        transform: translate3d(35vh, var(--idle-height), 0) scaleX(1);
     }
 
     50% {
-        transform: translate3d(35vh, 35vh, 0) scaleX(-1);
-        background-image: url('mario-idle.png');
+        transform: translate3d(35vh, var(--idle-height), 0) scaleX(-1);
+        background-image: var(--image-idle);
     }
 
     51% {
-        background-image: url('mario-jump.png');
+        background-image: var(--image-jump);
     }
 
     75% {
-        transform: translate3d(17.5vh, 20vh, 0) scaleX(-1);
+        transform: translate3d(17.5vh, var(--jump-height), 0) scaleX(-1);
     }
 
     94% {
-        background-image: url('mario-jump.png');
+        background-image: var(--image-jump);
     }
 
     95% {
-        transform: translate3d(0, 35vh, 0) scaleX(-1);
-        background-image: url('mario-idle.png');
+        transform: translate3d(0, var(--idle-height), 0) scaleX(-1);
+        background-image: var(--image-idle);
     }
 
     99% {
-        transform: translate3d(0, 35vh, 0) scaleX(-1);
-    }
-}
-
-@keyframes turtle-jump {
-    0% {
-        transform: translate3d(35vh, 30vh, 0) scaleX(1);
-        background-image: url('turtle-idle.png');
-    }
-
-    1% {
-        background-image: url('turtle-jump.png');
-    }
-
-    25% {
-        transform: translate3d(17.5vh, 0vh, 0);
-    }
-
-    44% {
-        background-image: url('turtle-jump.png');
-    }
-
-    45% {
-        transform: translate3d(0vh, 30vh, 0);
-        background-image: url('turtle-idle.png');
-    }
-
-    49% {
-        transform: translate3d(0vh, 30vh, 0) scaleX(1);
-    }
-
-    50% {
-        transform: translate3d(0vh, 30vh, 0) scaleX(-1);
-        background-image: url('turtle-idle.png');
-    }
-
-    51% {
-        background-image: url('turtle-jump.png');
-    }
-
-    75% {
-        transform: translate3d(17.5vh, 0vh, 0) scaleX(-1);
-    }
-
-    94% {
-        background-image: url('turtle-jump.png');
-    }
-
-    95% {
-        transform: translate3d(35vh, 30vh, 0) scaleX(-1);
-        background-image: url('turtle-idle.png');
-    }
-
-    99% {
-        transform: translate3d(35vh, 30vh, 0) scaleX(-1);
+        transform: translate3d(0, var(--idle-height), 0) scaleX(-1);
     }
 }
