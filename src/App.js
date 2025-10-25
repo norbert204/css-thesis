@@ -15,6 +15,7 @@ import AnimationSectionTitle from './Components/Slides/Animation/AnimationSectio
 import AnimationProperty from './Components/Slides/Animation/AnimationProperty/AnimationProperty'
 import AnimationNameProperty from './Components/Slides/Animation/AnimationNameProperty/AnimationNameProperty'
 import AnimationDuration from './Components/Slides/Animation/AnimationDuration/AnimationDuration'
+import AnimationTimingFunction from './Components/Slides/Animation/AnimationTimingFunction/AnimationTimingFunction'
 import ExampleMario from './Components/Slides/Animation/ExampleMario/ExampleMario'
 import ExampleBlur from './Components/Slides/Filter/ExampleBlur/ExampleBlur'
 import Example3dRoom from './Components/Slides/Examples/Example3dRoom/Example3dRoom'
@@ -32,6 +33,7 @@ export default function App() {
         AnimationProperty,
         AnimationNameProperty,
         AnimationDuration,
+        AnimationTimingFunction,
         ExampleMario,
         ExampleBlur,
         Example3dRoom,

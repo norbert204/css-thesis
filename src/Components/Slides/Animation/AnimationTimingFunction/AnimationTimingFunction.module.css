@@ -1,0 +1,91 @@
+.marios {
+    display: flex;
+    justify-content: center;
+
+    & .container {
+        width: 60vw;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    & .running-track {
+        border: 1px solid var(--stroke);
+        background:
+            left top / 15px 100% no-repeat linear-gradient(to right, blue, transparent),
+            right top / 15px 100% no-repeat linear-gradient(to left, orange, transparent);
+        height: 3em;
+    }
+
+    & .mario {
+        width: 2em;
+        height: 2em;
+        background-size: 2em 2em;
+        background-repeat: no-repeat;
+    }
+
+    & .mario-linear .mario {
+        animation: mario-running 0.5s infinite,
+            run-single-function 4s infinite;
+        animation-timing-function: linear;
+    }
+
+    & .mario-ease .mario {
+        animation: mario-running 0.5s infinite,
+            run-single-function 4s infinite;
+        animation-timing-function: ease-in-out;
+    }
+
+    & .mario-two-function .mario {
+        animation: mario-running 0.5s infinite,
+            run-two-function 4s infinite;
+    }
+}
+
+@keyframes mario-running {
+    0% {
+        background-image: url('./mario-walk1.png');
+    }
+
+    33% {
+        background-image: url('./mario-walk2.png');
+    }
+
+    66% {
+        background-image: url('./mario-walk3.png');
+    }
+
+    100% {
+        background-image: url('./mario-walk1.png');
+    }
+}
+
+@keyframes run-single-function {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(calc(20vw - 1em), 1em, 0);
+    }
+
+    100% {
+        transform: translate3d(calc(60vw - 2em), 0, 0);
+    }
+}
+
+@keyframes run-two-function {
+    0% {
+        transform: translate3d(0, 0, 0);
+        animation-timing-function: linear;
+    }
+
+    50% {
+        transform: translate3d(calc(20vw - 1em), 1em, 0);
+        animation-timing-function: ease-in-out;
+    }
+
+    100% {
+        transform: translate3d(calc(60vw - 2em), 0, 0);
+    }
+}
