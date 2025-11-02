@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.scroll-container {
+    height: 40vh;
+    aspect-ratio: 16 / 9;
+    scroll-timeline-name: --scroll-container-timeline;
+    scroll-timeline-axis: y;
+    overflow-y: scroll;
+    border: 1px solid var(--stroke);
+
+    & .image {
+        height: 80vh;
+        background: url('scrollBackground.png');
+        background-size: cover;
+        animation-name: scroll-background;
+        animation-timeline: --scroll-container-timeline;
+        animation-timing-function: linear;
+    }
+}
+
+.view-container {
+    height: 40vh;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--stroke);
+    overflow-y: scroll;
+
+    & .viewport {
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    & .image {
+        height: 20vh;
+        animation-name: view-background;
+        animation-timeline: view();
+        animation-timing-function: linear;
+    }
+}
+
+@keyframes scroll-background {
+    from {
+        background-position: left calc(-1 * (16 / 9) * 60vh) top -60vh;
+        background-size: calc((16/9) * 160vh) 160vh;
+    }
+
+    to {
+        background-position: left 0px top 40vh;
+        background-size: calc((16/9) * 40vh) 40vh;
+    }
+}
+
+@keyframes view-background {
+    from {
+        background: red;
+    }
+    to {
+        background: blue;
+    }
+}
