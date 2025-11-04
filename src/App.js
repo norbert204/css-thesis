@@ -11,6 +11,11 @@ import AboutPresentation from './Components/Slides/Introduction/AboutPresentatio
 import TransitionSectionTitle from './Components/Slides/Transition/TransitionSectionTitle/TransitionSectionTitle'
 import TransitionProperty from './Components/Slides/Transition/TransitionProperty/TransitionProperty'
 import TransitionPropertyProperty from './Components/Slides/Transition/TransitionPropertyProperty/TransitionPropertyProperty'
+import TransitionTimingFunction from './Components/Slides/Transition/TransitionTimingFunction/TransitionTimingFunction'
+import EasingFunctionLinear from './Components/Slides/Transition/EasingFunctionLinear/EasingFunctionLinear'
+import EasingFunctionBezier from './Components/Slides/Transition/EasingFunctionBezier/EasingFunctionBezier'
+import EasingFunctionSteps from './Components/Slides/Transition/EasingFunctionSteps/EasingFunctionSteps'
+import ExampleMadEmoji from './Components/Slides/Transition/ExampleMadEmoji/ExampleMadEmoji'
 import AnimationSectionTitle from './Components/Slides/Animation/AnimationSectionTitle/AnimationSectionTitle'
 import AnimationProperty from './Components/Slides/Animation/AnimationProperty/AnimationProperty'
 import AnimationDuration from './Components/Slides/Animation/AnimationDuration/AnimationDuration'
@@ -27,6 +32,11 @@ export default function App() {
         TransitionSectionTitle,
         TransitionProperty,
         TransitionPropertyProperty,
+        TransitionTimingFunction,
+        EasingFunctionLinear,
+        EasingFunctionBezier,
+        EasingFunctionSteps,
+        ExampleMadEmoji,
         AnimationSectionTitle,
         AnimationProperty,
         AnimationDuration,
