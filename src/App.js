@@ -25,6 +25,8 @@ import AnimationTimelineProperty from './Components/Slides/Animation/AnimationTi
 import ExampleMario from './Components/Slides/Animation/ExampleMario/ExampleMario'
 import ExampleBlur from './Components/Slides/Filter/ExampleBlur/ExampleBlur'
 import Example3dRoom from './Components/Slides/Examples/Example3dRoom/Example3dRoom'
+import BackgroundDiscrete from './Components/Slides/Animation/BackgroundDiscrete/BackgroundDiscrete'
+import AnimationCompositionProperty from './Components/Slides/Animation/AnimationCompositionProperty/AnimationCompositionProperty'
 
 export default function App() {
     const { page } = useParams()
@@ -41,11 +43,13 @@ export default function App() {
         EasingFunctionSteps,
         ExampleMadEmoji,
         AnimationSectionTitle,
+        BackgroundDiscrete,
         AnimationProperty,
         AnimationNameProperty,
         AnimationDuration,
         AnimationTimingFunction,
         AnimationTimelineProperty,
+        AnimationCompositionProperty,
         ExampleMario,
         ExampleBlur,
         Example3dRoom,
