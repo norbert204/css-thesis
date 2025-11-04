@@ -16,32 +16,32 @@ export default function TransitionPropertyProperty() {
                 We have a few examples below for different values for the property. We also set the <code>transition-duration: 1s</code>,
                 and <code>transition-timing-function: ease-in-out</code> property values for the example boxes.
             </p>
-                <div className={styles["example-list"]}>
-                    <div>
-                        <code>transition-property: margin</code>
-                    </div>
-                    <div>
-                        <span className={marginExampleClasses}>Hover me</span>
-                    </div>
-                    <div>
-                        <code>transition-property: padding</code>
-                    </div>
-                    <div>
-                        <span className={paddingExampleClasses}>Hover me</span>
-                    </div>
-                    <div>
-                        <code>transition-property: background</code>
-                    </div>
-                    <div>
-                        <span className={backgroundExampleClasses}>Hover me</span>
-                    </div>
-                    <div>
-                        <code>transition-property: opacity</code>
-                    </div>
-                    <div>
-                        <span className={opacityExampleClasses}>Hover me</span>
-                    </div>
+            <div className={styles["example-list"]}>
+                <div>
+                    <code>transition-property: margin</code>
                 </div>
+                <div>
+                    <span className={marginExampleClasses}>Hover me</span>
+                </div>
+                <div>
+                    <code>transition-property: padding</code>
+                </div>
+                <div>
+                    <span className={paddingExampleClasses}>Hover me</span>
+                </div>
+                <div>
+                    <code>transition-property: background</code>
+                </div>
+                <div>
+                    <span className={backgroundExampleClasses}>Hover me</span>
+                </div>
+                <div>
+                    <code>transition-property: opacity</code>
+                </div>
+                <div>
+                    <span className={opacityExampleClasses}>Hover me</span>
+                </div>
+            </div>
         </section>
     )
 }
