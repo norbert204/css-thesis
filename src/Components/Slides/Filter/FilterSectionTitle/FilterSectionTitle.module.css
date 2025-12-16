@@ -1,0 +1,20 @@
+.filtered-title {
+    color: var(--accent);
+    animation: 2s ease-in-out title-filter forwards;
+    animation-delay: 1s;
+    filter: blur(1em) grayscale(100%);
+}
+
+@keyframes title-filter {
+    0% {
+        filter: blur(1em) grayscale(100%);
+    }
+
+    70% {
+        filter: none;
+    }
+
+    100% {
+        filter: drop-shadow(.1em .1em .1em var(--accent)) invert(40%);
+    }
+}
